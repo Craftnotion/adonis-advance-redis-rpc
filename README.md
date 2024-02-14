@@ -5,12 +5,6 @@
 
 The `@craftnotion/adonis5-advance-redis-rpc` package is a powerful RPC (Remote Procedure Call) provider designed specifically for AdonisJS 5 applications. It leverages Redis pub/sub transport for efficient communication between server and client instances. This package simplifies the implementation of distributed systems by enabling seamless communication between different parts of your application.
 
-**Key Features:**
-- Seamless RPC communication using Redis pub/sub.
-- Simplified setup and configuration.
-- Support for both server and client modes.
-- Automatic handling of method calls and responses.
-
 
 
 ### Installation
@@ -26,6 +20,12 @@ node ace invoke @craftnotion/adonis5-advance-redis-rpc
 
 ### Usage
 
+The server, methods, and client can be initiated in a preload file to ensure seamless communication within your AdonisJS application. Execute the following command to create a preload file:
+
+```ts
+node ace make:prldfile redis-rps
+```
+
 #### Server Mode
 
 In server mode, you can create a server with a specific name and add handlers for methods that can be invoked remotely.
@@ -33,15 +33,19 @@ In server mode, you can create a server with a specific name and add handlers fo
 ```typescript
 import RedisRPC from '@ioc:Adonis/Addons/RedisRPC'
 
-await RedisRPC.server('example') // Create a server with name example
+async run(){
+  await RedisRPC.server('example') // Create a server with name example
+  
+  RedisRPC.addHandler('exampleMethod', async ({ data }) => {
+    console.log(data);
+  })
+}
 
-RedisRPC.addHandler('exampleMethod', async ({ data }) => {
-  console.log(data);
-})
+run();
 
 ```
 
-### Client mode
+#### Client mode
 ```ts
 import Route from '@ioc:Adonis/Core/Route'
 import RedisRPC from '@ioc:Adonis/Addons/RedisRPC'
@@ -53,7 +57,7 @@ Route.get('example', async () => {
 })
 ```
 
-Crafted with ❤️ by [CraftNotion](https://craftnotion.com)
+Crafted with ❤️ by [Craftnotion](https://craftnotion.com)
 
 [npm-image]: https://img.shields.io/npm/v/@craftnotion/adonis5-advance-redis-rpc.svg?style=for-the-badge&logo=npm
 [npm-url]: https://www.npmjs.com/package/@craftnotion/adonis5-advance-redis-rpc "npm"
