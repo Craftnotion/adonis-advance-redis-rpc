@@ -23,7 +23,7 @@ node ace invoke @craftnotion/adonis5-advance-redis-rpc
 The server, methods, and client can be initiated in a preload file to ensure seamless communication within your AdonisJS application. Execute the following command to create a preload file:
 
 ```ts
-node ace make:prldfile redis-rps
+node ace make:prldfile redis_rps
 ```
 
 #### Server Mode
