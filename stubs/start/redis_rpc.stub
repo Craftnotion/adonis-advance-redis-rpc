@@ -1,0 +1,20 @@
+{{{
+  exports({
+    to: app.startPath('redis_rpc.ts')
+  })
+}}}
+
+import redisRPC from '@craftnotion/adonisjs-advance-redis-rpc/services/main'
+    /**
+     * To create server, use redisRPC.server('example') method,
+     * where 'example' is the name of the server.
+     * To create client, use redisRPC.client() method, The method should be called only once.
+     * You can add handlers to the server using 
+     * redisRPC.addHandler("exampleHandler", (payload)=> { 
+     *   // your code here
+     * }) 
+     * method.
+     */
+  async function run() {
+  }
+  run()
