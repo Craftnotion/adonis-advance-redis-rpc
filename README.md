@@ -9,7 +9,6 @@ The `@craftnotion/adonisjs-advance-redis-rpc` package is a powerful RPC (Remote 
 ### Installation
 
 Before installing the package, ensure you have Redis installed and configured. You can follow the instructions provided in the [AdonisJS documentation](https://docs.adonisjs.com/guides/redis) for setting up Redis.
-
 Once Redis is set up, you can install the package via npm:
 
 ```bash
@@ -19,7 +18,7 @@ node ace configure @craftnotion/adonisjs-advance-redis-rpc
 
 ### Usage
 
-The server, methods, and client can be initiated in #start/redis_rpc.ts file to ensure seamless communication within your AdonisJS application. Execute the following command to create a preload file:
+The server, methods, and client can be initiated in #start/redis_rpc.ts file to ensure seamless communication within your AdonisJS application.
 
 #### Server Mode
 
@@ -49,7 +48,7 @@ import redisRPC from '@craftnotion/adonisjs-advance-redis-rpc/services/main'
 
 async run(){
 
-  await redisRPC.clinet() // Create a server with name example
+  await redisRPC.client() // Create a client
 }
 
 run();
@@ -64,11 +63,13 @@ import redisRPC from '@craftnotion/adonisjs-advance-redis-rpc/services/main'
 
 Route.get('example', async () => {
   const result = await redisRPC.call('example.exampleMethod', { data: 'message' })
+
   return result
 })
 ```
 
 Crafted with ❤️ by [Craftnotion](https://craftnotion.com)
+
 
 [npm-image]: https://img.shields.io/npm/v/@craftnotion/adonisjs-advance-redis-rpc.svg?style=for-the-badge&logo=npm
 [npm-url]: https://www.npmjs.com/package/@craftnotion/adonisjs-advance-redis-rpc 'npm'
